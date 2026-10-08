@@ -1,0 +1,425 @@
+/* ===================================================================
+   TIMELINE COMPONENT - STYLES
+   Horizontal pinned scroll journey with GSAP ScrollTrigger
+   =================================================================== */
+
+.timeline-section {
+  position: relative;
+  width: 100%;
+  height: 220vw;
+  background-color: var(--timeline-bg, #FFFFFF);
+  color: var(--timeline-text, #111111);
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-section {
+    height: 420vh;
+  }
+}
+
+.timeline-sticky-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 4vh;
+  box-sizing: border-box;
+}
+
+.timeline-slider {
+  display: flex;
+  align-items: center;
+  height: 32vw;
+  width: 250vw;
+  gap: 4vw;
+  padding: 0 5vw;
+  will-change: transform;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-slider {
+    height: 75vh;
+    width: 820vw;
+    padding: 0 6vw;
+    gap: 6vw;
+  }
+}
+
+/* Left Hero Project Card */
+.timeline-hero-card {
+  height: 100%;
+  width: 30vw;
+  min-width: 28vw;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #F4F4F5;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-hero-card {
+    height: 60vw;
+    width: 82vw;
+    min-width: 82vw;
+    border-radius: 18px;
+  }
+}
+
+.timeline-hero-card img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* Central Horizontal Track & Milestones */
+.timeline-track-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Central Line */
+.timeline-center-axis {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.timeline-axis-dot {
+  width: 0.8vw;
+  height: 0.8vw;
+  border-radius: 50%;
+  background-color: var(--timeline-accent, #ff5f00);
+  box-shadow: 0 0 0 3px rgba(255, 95, 0, 0.2);
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-axis-dot {
+    width: 2vw;
+    height: 2vw;
+  }
+}
+
+.timeline-axis-line {
+  height: 2px;
+  width: 0%;
+  background-color: var(--timeline-accent, #ff5f00);
+  border-radius: 999px;
+  will-change: width;
+}
+
+/* Top Half Milestones */
+.timeline-top-row {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5vw;
+}
+
+.timeline-header-block {
+  height: 100%;
+  width: 22vw;
+  min-width: 20vw;
+  padding-top: 1.5vw;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.timeline-title {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 2.8vw;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--timeline-text, #111111);
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-header-block {
+    width: 65vw;
+    min-width: 65vw;
+    padding-top: 4vw;
+  }
+  .timeline-title {
+    font-size: 8vw;
+  }
+}
+
+.timeline-top-milestones {
+  display: flex;
+  height: 100%;
+  gap: 16vw;
+  padding-left: 2vw;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-top-milestones {
+    gap: 38vw;
+  }
+}
+
+/* Bottom Half Milestones */
+.timeline-bottom-row {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.timeline-period-block {
+  width: 22vw;
+  min-width: 20vw;
+  padding-top: 2vw;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.timeline-period-label {
+  font-family: 'Geist', monospace;
+  font-size: 1.5vw;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--timeline-muted, #71717A);
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-period-block {
+    width: 65vw;
+    min-width: 65vw;
+    padding-top: 5vw;
+  }
+  .timeline-period-label {
+    font-size: 4.2vw;
+  }
+}
+
+.timeline-bottom-milestones {
+  display: flex;
+  height: 100%;
+  gap: 20vw;
+  margin-left: 8vw;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-bottom-milestones {
+    gap: 38vw;
+    margin-left: 10vw;
+  }
+}
+
+/* Individual Milestone Item */
+.timeline-milestone {
+  position: relative;
+  height: 100%;
+  width: 26vw;
+  min-width: 24vw;
+  padding: 0 2vw;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-milestone {
+    width: 68vw;
+    min-width: 68vw;
+    padding: 0 4vw;
+  }
+}
+
+/* Vertical Stems */
+.timeline-stem-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.timeline-milestone.top .timeline-stem-wrapper {
+  bottom: 0;
+  top: 0;
+}
+
+.timeline-milestone.bottom .timeline-stem-wrapper {
+  bottom: -1%;
+  top: 0;
+}
+
+.timeline-stem-dot {
+  position: relative;
+  width: 0.9vw;
+  height: 0.9vw;
+  border-radius: 50%;
+  background-color: var(--timeline-accent, #ff5f00);
+  transform: translateX(-50%) scale(0);
+  box-shadow: 0 0 0 3px rgba(255, 95, 0, 0.2);
+  will-change: transform;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-stem-dot {
+    width: 2.2vw;
+    height: 2.2vw;
+  }
+}
+
+.timeline-stem-line {
+  width: 2px;
+  height: 94%;
+  background-color: var(--timeline-accent, #ff5f00);
+  border-radius: 999px;
+  will-change: transform;
+}
+
+.timeline-milestone.top .timeline-stem-line {
+  transform-origin: bottom center;
+  transform: scaleY(0);
+}
+
+.timeline-milestone.bottom .timeline-stem-line {
+  transform-origin: top center;
+  transform: scaleY(0);
+}
+
+/* Milestone Content */
+.timeline-milestone-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6vw;
+}
+
+.timeline-milestone.top .timeline-milestone-content {
+  margin-top: -1vw;
+}
+
+.timeline-milestone.bottom .timeline-milestone-content {
+  height: 100%;
+  justify-content: flex-end;
+  padding-bottom: 1.5vw;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-milestone.top .timeline-milestone-content {
+    margin-top: -2vw;
+  }
+  .timeline-milestone.bottom .timeline-milestone-content {
+    padding-bottom: 4vw;
+  }
+}
+
+.timeline-milestone-date {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 2.2vw;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--timeline-text, #111111);
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-milestone-date {
+    font-size: 6vw;
+  }
+}
+
+.timeline-milestone-text {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 1.35vw;
+  font-weight: 300;
+  line-height: 1.35;
+  color: var(--timeline-muted, #555555);
+  max-width: 92%;
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-milestone-text {
+    font-size: 4.4vw;
+    line-height: 1.4;
+  }
+}
+
+/* Micro Lead-In & Footer for Standalone Experience */
+.timeline-lead-in {
+  padding: 120px 20px 60px 20px;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.timeline-lead-badge {
+  display: inline-block;
+  font-family: 'Geist', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--timeline-muted, #71717A);
+  margin-bottom: 16px;
+}
+
+.timeline-lead-heading {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--timeline-text, #111111);
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .timeline-lead-heading {
+    font-size: 2rem;
+  }
+}
+
+.timeline-lead-desc {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.timeline-lead-scroll-hint {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: #888888;
+  animation: bounceHint 2s infinite ease-in-out;
+}
+
+@keyframes bounceHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}

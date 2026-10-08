@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sai Shree Balajee Homes — Real Estate Web Platform | Aaditya Narayan</title>
+  <meta name="description" content="Modern real estate web platform with custom admin portal and property inventory management." />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="timeline.html">Timeline &amp; Roadmap</a>
+      <a href="https://ssbhomes.netlify.app/" target="_blank" rel="noopener noreferrer" class="resume-pill">Visit Live &nearr;</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Main Case Study Content -->
+  <div class="work-page slide delay01">
+    <div class="work-page-content">
+      <h1>Sai Shree Balajee Homes</h1>
+      <h3 class="text">
+        A bespoke real estate web application built to present residential properties with architectural elegance, accompanied by an administrative content management system.
+      </h3>
+      <p>
+        Sai Shree Balajee Homes is a premier residential developer that required a modern digital presence to showcase luxury properties, floor plans, and amenities. Prior to this project, prospective buyers had to rely on static brochures and informal messaging.
+      </p>
+      <p>
+        I engineered a responsive web platform that balances high-resolution architectural imagery with blazing fast page load speeds. The platform incorporates an interactive property inventory browser, custom enquiry forms with WhatsApp integration, and a secured administrative dashboard.
+      </p>
+      <p>
+        Key engineering highlights include a responsive image pipeline optimizing architectural renders on the fly, SEO metadata generation for organic local search discoverability, and Netlify continuous deployment achieving top-tier Google Lighthouse performance benchmarks.
+      </p>
+      <p>
+        <a href="https://ssbhomes.netlify.app/" target="_blank" rel="noopener noreferrer">Visit Live Website &nearr;</a>
+        <a href="timeline.html">View Project Timeline &rarr;</a>
+      </p>
+    </div>
+
+    <img src="img/ssbhomes-cover.webp" alt="Sai Shree Balajee Homes Overview" class="work-page-image" />
+
+    <!-- Embedded Timeline Section -->
+    <div style="margin: 80px 0 40px 0; text-align: center;">
+      <h2 style="font-size: 2.2rem; margin-bottom: 12px;">Project Storyline &amp; Milestones</h2>
+      <p style="color:#666; max-width:600px; margin:0 auto 40px auto; font-size:1.1rem;">
+        Scroll horizontally to follow the lifecycle of Sai Shree Balajee Homes from initial discovery to deployment.
+      </p>
+    </div>
+    <div id="projectTimeline"></div>
+
+    <div class="back-to-projects" style="margin-top: 60px;">
+      <a href="../../index.html">&larr; Back to all projects</a>
+    </div>
+  </div>
+
+  <footer class="slide delay02">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'SSB Homes Roadmap',
+      periodLabel: '2023 — 2024',
+      imageUrl: 'img/ssbhomes-cover.webp',
+      imageAlt: 'Sai Shree Balajee Homes Architecture',
+      activeColor: '#D97706',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'ssb-2023-aug',
+          year: '2023',
+          month: 'August',
+          content: 'Client engagement & requirements gathering for luxury residential development catalog.'
+        },
+        {
+          id: 'ssb-2023-nov',
+          year: '2023',
+          month: 'November',
+          content: 'Architectural gallery layout and floorplan interactive modal system designed in Figma.'
+        },
+        {
+          id: 'ssb-2024-mar',
+          year: '2024',
+          month: 'March',
+          content: 'Frontend application built featuring seamless filtering by property type, size, and location.'
+        },
+        {
+          id: 'ssb-2024-jul',
+          year: '2024',
+          month: 'July',
+          content: 'Custom admin dashboard delivered, enabling property agents to update prices and unit availability.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'ssb-2023-oct',
+          year: '2023',
+          month: 'October',
+          content: 'Asset compression pipeline engineered delivering crisp high-res 4K renders with zero lag.'
+        },
+        {
+          id: 'ssb-2024-jan',
+          year: '2024',
+          month: 'January',
+          content: 'Automated enquiry pipeline integrated sending leads straight to sales reps via WhatsApp and email.'
+        },
+        {
+          id: 'ssb-2024-may',
+          year: '2024',
+          month: 'May',
+          content: 'Netlify production launch certified with a 98+ Google Lighthouse performance rating.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

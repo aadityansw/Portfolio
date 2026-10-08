@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Websites Collection — Project Timeline | Aaditya Narayan</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="index.html">Case Study</a>
+      <a href="timeline.html" style="font-weight:600; text-decoration:underline;">Timeline</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Lead-in Section -->
+  <section class="timeline-lead-in slide delay01">
+    <span class="timeline-lead-badge">Client Work &amp; Web Engagements</span>
+    <h1 class="timeline-lead-heading">Websites Collection: Practice Timeline</h1>
+    <p class="timeline-lead-desc">
+      A 3-year journey delivering tailored digital identities, high-converting product pages, and performant web applications for diverse brands.
+    </p>
+    <div class="timeline-lead-scroll-hint">
+      <span>Scroll to explore timeline milestones</span>
+      <span>&darr;</span>
+    </div>
+  </section>
+
+  <!-- Pinned Horizontal Timeline Container -->
+  <div id="projectTimeline" class="slide delay02"></div>
+
+  <!-- Footer Navigation -->
+  <section class="timeline-lead-in" style="padding: 80px 20px 120px 20px;">
+    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">Explore Further</h3>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="index.html" class="resume-pill">Read Full Collection &rarr;</a>
+      <a href="../server-automation/timeline.html" class="resume-pill">Next Timeline: Server Automation &rarr;</a>
+      <a href="../../index.html" class="resume-pill" style="border-color:#888;">&larr; Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="slide delay03">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP CDN & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'Web Dev Practice',
+      periodLabel: '2022 — 2025',
+      imageUrl: '../../img/websites-cover.webp',
+      imageAlt: 'Curated Websites Showcase',
+      activeColor: '#10B981',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'web-2022-jun',
+          year: '2022',
+          month: 'June',
+          content: 'Freelance web studio founded, targeting bespoke front-end development and conversion-focused landing pages.'
+        },
+        {
+          id: 'web-2023-mar',
+          year: '2023',
+          month: 'March',
+          content: 'Engineered modular design token system standardizing typography, fluid grids, and CSS variable styling.'
+        },
+        {
+          id: 'web-2024-jan',
+          year: '2024',
+          month: 'January',
+          content: 'Expanded client services into corporate multi-page platforms and SaaS dashboards with API connectivity.'
+        },
+        {
+          id: 'web-2025-feb',
+          year: '2025',
+          month: 'February',
+          content: 'Milestone reached: 15+ bespoke client solutions delivered with 100% 5-star client review ratings.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'web-2022-nov',
+          year: '2022',
+          month: 'November',
+          content: 'Automated SEO schema markup and semantic HTML5 standards introduced to achieve instant ranking indexation.'
+        },
+        {
+          id: 'web-2023-aug',
+          year: '2023',
+          month: 'August',
+          content: 'GSAP and native CSS micro-interaction library integrated to bring editorial flair to brand showcases.'
+        },
+        {
+          id: 'web-2024-jun',
+          year: '2024',
+          month: 'June',
+          content: 'E-commerce and Stripe/Razorpay payment gateway flows deployed for international boutique clients.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

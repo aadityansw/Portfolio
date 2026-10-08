@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apna Agenda — Project Timeline | Aaditya Narayan</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="index.html">Case Study</a>
+      <a href="timeline.html" style="font-weight:600; text-decoration:underline;">Timeline</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Lead-in Section -->
+  <section class="timeline-lead-in slide delay01">
+    <span class="timeline-lead-badge">Product Evolution &amp; Roadmap</span>
+    <h1 class="timeline-lead-heading">Apna Agenda: Concept to Cross-Platform V2</h1>
+    <p class="timeline-lead-desc">
+      A 2-year development journey: from addressing meeting scheduling fatigue to building an offline-first Flutter application with automated calendar integrations.
+    </p>
+    <div class="timeline-lead-scroll-hint">
+      <span>Scroll to explore timeline milestones</span>
+      <span>&darr;</span>
+    </div>
+  </section>
+
+  <!-- Pinned Horizontal Timeline Container -->
+  <div id="projectTimeline" class="slide delay02"></div>
+
+  <!-- Footer Navigation -->
+  <section class="timeline-lead-in" style="padding: 80px 20px 120px 20px;">
+    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">Explore Further</h3>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="index.html" class="resume-pill">Read Full Case Study &rarr;</a>
+      <a href="../apna-backup/timeline.html" class="resume-pill">Next Timeline: Apna Backup &rarr;</a>
+      <a href="../../index.html" class="resume-pill" style="border-color:#888;">&larr; Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="slide delay03">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP CDN & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'Apna Agenda Storyline',
+      periodLabel: '2023 — 2025',
+      imageUrl: '../../img/apna-agenda.webp',
+      imageAlt: 'Apna Agenda Application Interface',
+      activeColor: '#ff5f00',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'aa-2023-mar',
+          year: '2023',
+          month: 'March',
+          content: 'Initial problem discovery: analyzing meeting management fatigue across Google Meet, Zoom, and Teams.'
+        },
+        {
+          id: 'aa-2023-nov',
+          year: '2023',
+          month: 'November',
+          content: 'Flutter architecture engineered with unified event state management and offline-first Hive storage.'
+        },
+        {
+          id: 'aa-2024-jul',
+          year: '2024',
+          month: 'July',
+          content: 'Integrated multi-platform calendar APIs with automated conflict resolution and deep-linking.'
+        },
+        {
+          id: 'aa-2025-feb',
+          year: '2025',
+          month: 'February',
+          content: 'V2 production release shipping with customizable notifications and multi-device cloud synchronization.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'aa-2023-jul',
+          year: '2023',
+          month: 'July',
+          content: 'Prototype design sprints validating intuitive agenda creation flows with university students.'
+        },
+        {
+          id: 'aa-2024-mar',
+          year: '2024',
+          month: 'March',
+          content: 'Android beta release launched with real-time class timetables and one-tap meeting entry.'
+        },
+        {
+          id: 'aa-2024-nov',
+          year: '2024',
+          month: 'November',
+          content: 'iOS optimization pass completed, achieving 60fps scrolling and lock-screen widget support.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

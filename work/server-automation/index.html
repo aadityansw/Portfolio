@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DevOps &amp; Server Automation Suite | Aaditya Narayan</title>
+  <meta name="description" content="Automated server health telemetry, backup engines, failover scripts, and telephony automation." />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="timeline.html">Timeline &amp; Roadmap</a>
+      <a href="../../about/index.html">About</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Main Case Study Content -->
+  <div class="work-page slide delay01">
+    <div class="work-page-content">
+      <h1>DevOps &amp; Server Automation Suite</h1>
+      <h3 class="text">
+        An engineering infrastructure suite built on Ubuntu Linux, Python, and Bash to automate cloud server health telemetry, fault-tolerant backup engines, and telephony PBX routing.
+      </h3>
+      <p>
+        Managing reliable production infrastructure requires moving from reactive emergency fixes to proactive self-healing automation. This initiative centralized server health monitoring, security audits, and automated data recovery across multiple distributed Linux nodes.
+      </p>
+      <p>
+        The suite includes Python daemons that track CPU, disk, memory, and network throughput thresholds, triggering automated backup failover and sending encrypted push notifications before resource exhaustion occurs.
+      </p>
+      <p>
+        Additionally, VoIP telephony scripts integrate with PBX services to handle automated call routing, IVR queue telemetry, and automated diagnostics during telecom outages.
+      </p>
+      <p>
+        <a href="timeline.html">Explore Infrastructure Timeline &rarr;</a>
+        <a href="../../about/index.html">Read Engineering Background &rarr;</a>
+      </p>
+    </div>
+
+    <img src="../../img/server-automation.jpg" alt="Linux Server Infrastructure Overview" class="work-page-image" />
+
+    <!-- Embedded Timeline Section -->
+    <div style="margin: 80px 0 40px 0; text-align: center;">
+      <h2 style="font-size: 2.2rem; margin-bottom: 12px;">Infrastructure Evolution Timeline</h2>
+      <p style="color:#666; max-width:600px; margin:0 auto 40px auto; font-size:1.1rem;">
+        Scroll horizontally to inspect the architectural evolution of server automation scripts and daemons.
+      </p>
+    </div>
+    <div id="projectTimeline"></div>
+
+    <div class="back-to-projects" style="margin-top: 60px;">
+      <a href="../../index.html">&larr; Back to all projects</a>
+    </div>
+  </div>
+
+  <footer class="slide delay02">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'DevOps & Systems',
+      periodLabel: '2022 — 2025',
+      imageUrl: '../../img/server-automation.jpg',
+      imageAlt: 'Server Automation & Cloud Telemetry',
+      activeColor: '#EF4444',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'dev-2022-jan',
+          year: '2022',
+          month: 'January',
+          content: 'Linux Ubuntu server administration foundation established across enterprise hosting environments.'
+        },
+        {
+          id: 'dev-2022-oct',
+          year: '2022',
+          month: 'October',
+          content: 'Automated Python daemon built for nightly incremental backups and off-site cloud sync.'
+        },
+        {
+          id: 'dev-2023-aug',
+          year: '2023',
+          month: 'August',
+          content: 'Telephony & VoIP PBX automation scripts implemented for programmatic call routing.'
+        },
+        {
+          id: 'dev-2024-nov',
+          year: '2024',
+          month: 'November',
+          content: 'Comprehensive system health telemetry suite deployed with automated self-healing restart triggers.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'dev-2022-may',
+          year: '2022',
+          month: 'May',
+          content: 'Bash utility library built for automated package updates, firewall hardening, and SSH auditing.'
+        },
+        {
+          id: 'dev-2023-feb',
+          year: '2023',
+          month: 'February',
+          content: 'Database dump and point-in-time recovery testing scripts certified for 99.9% data durability.'
+        },
+        {
+          id: 'dev-2024-apr',
+          year: '2024',
+          month: 'April',
+          content: 'Log analysis engine built in Python to parse server access spikes and prevent brute-force attacks.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

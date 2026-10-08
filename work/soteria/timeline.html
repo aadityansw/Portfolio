@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soteria / @Hotel — Project Timeline | Aaditya Narayan</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="index.html">Case Study</a>
+      <a href="timeline.html" style="font-weight:600; text-decoration:underline;">Timeline</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Lead-in Section -->
+  <section class="timeline-lead-in slide delay01">
+    <span class="timeline-lead-badge">Product Design &amp; Travel UI/UX</span>
+    <h1 class="timeline-lead-heading">Soteria / @Hotel: Experience Timeline</h1>
+    <p class="timeline-lead-desc">
+      A 2-year design process transforming legacy hotel booking flows into a social-first, creator-led mobile hospitality experience.
+    </p>
+    <div class="timeline-lead-scroll-hint">
+      <span>Scroll to explore timeline milestones</span>
+      <span>&darr;</span>
+    </div>
+  </section>
+
+  <!-- Pinned Horizontal Timeline Container -->
+  <div id="projectTimeline" class="slide delay02"></div>
+
+  <!-- Footer Navigation -->
+  <section class="timeline-lead-in" style="padding: 80px 20px 120px 20px;">
+    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">Explore Further</h3>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="index.html" class="resume-pill">Read Full Case Study &rarr;</a>
+      <a href="../invision/timeline.html" class="resume-pill">Next Timeline: InVision DSM &rarr;</a>
+      <a href="../../index.html" class="resume-pill" style="border-color:#888;">&larr; Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="slide delay03">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP CDN & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'Soteria Travel Design',
+      periodLabel: '2022 — 2024',
+      imageUrl: 'img/Athotel.webp',
+      imageAlt: 'Soteria / @Hotel Travel Booking Platform',
+      activeColor: '#06B6D4',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'sot-2022-aug',
+          year: '2022',
+          month: 'August',
+          content: 'User research analyzing booking drop-off rates on legacy OTA sites among digital nomad demographics.'
+        },
+        {
+          id: 'sot-2023-feb',
+          year: '2023',
+          month: 'February',
+          content: 'Social-first discovery experience conceptualized around influencer reels and curated photo geotags.'
+        },
+        {
+          id: 'sot-2023-sep',
+          year: '2023',
+          month: 'September',
+          content: 'Interactive prototype constructed in Figma spanning 40+ artboards with micro-interaction states.'
+        },
+        {
+          id: 'sot-2024-may',
+          year: '2024',
+          month: 'May',
+          content: 'Design system handoff finalized with responsive iOS and Web breakpoints, design tokens, and SVG icons.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'sot-2022-nov',
+          year: '2022',
+          month: 'November',
+          content: 'Information architecture re-engineered from 7 disjointed check-out screens down to a 3-tap checkout flow.'
+        },
+        {
+          id: 'sot-2023-may',
+          year: '2023',
+          month: 'May',
+          content: 'Usability testing with 20 frequent travelers validating an 85% preference for card-based discovery.'
+        },
+        {
+          id: 'sot-2024-jan',
+          year: '2024',
+          month: 'January',
+          content: 'Interactive map exploration UI perfected with smooth clustering and dynamic neighborhood price badges.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Server Automation &amp; DevOps — Project Timeline | Aaditya Narayan</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="index.html">Case Study</a>
+      <a href="timeline.html" style="font-weight:600; text-decoration:underline;">Timeline</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Lead-in Section -->
+  <section class="timeline-lead-in slide delay01">
+    <span class="timeline-lead-badge">Systems &amp; Python Engineering</span>
+    <h1 class="timeline-lead-heading">Server Automation: Infrastructure Storyline</h1>
+    <p class="timeline-lead-desc">
+      A 3-year journey from foundational Ubuntu administration to automated backup engines, failover monitors, and telephony routing automation.
+    </p>
+    <div class="timeline-lead-scroll-hint">
+      <span>Scroll to explore timeline milestones</span>
+      <span>&darr;</span>
+    </div>
+  </section>
+
+  <!-- Pinned Horizontal Timeline Container -->
+  <div id="projectTimeline" class="slide delay02"></div>
+
+  <!-- Footer Navigation -->
+  <section class="timeline-lead-in" style="padding: 80px 20px 120px 20px;">
+    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">Explore Further</h3>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="index.html" class="resume-pill">Read Case Study &rarr;</a>
+      <a href="../soteria/timeline.html" class="resume-pill">Next Timeline: Soteria Travel &rarr;</a>
+      <a href="../../index.html" class="resume-pill" style="border-color:#888;">&larr; Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="slide delay03">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP CDN & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'DevOps & Systems',
+      periodLabel: '2022 — 2025',
+      imageUrl: '../../img/server-automation.jpg',
+      imageAlt: 'Server Automation & Cloud Telemetry',
+      activeColor: '#EF4444',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'dev-2022-jan',
+          year: '2022',
+          month: 'January',
+          content: 'Linux Ubuntu server administration foundation established across enterprise hosting environments.'
+        },
+        {
+          id: 'dev-2022-oct',
+          year: '2022',
+          month: 'October',
+          content: 'Automated Python daemon built for nightly incremental backups and off-site cloud sync.'
+        },
+        {
+          id: 'dev-2023-aug',
+          year: '2023',
+          month: 'August',
+          content: 'Telephony & VoIP PBX automation scripts implemented for programmatic call routing.'
+        },
+        {
+          id: 'dev-2024-nov',
+          year: '2024',
+          month: 'November',
+          content: 'Comprehensive system health telemetry suite deployed with automated self-healing restart triggers.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'dev-2022-may',
+          year: '2022',
+          month: 'May',
+          content: 'Bash utility library built for automated package updates, firewall hardening, and SSH auditing.'
+        },
+        {
+          id: 'dev-2023-feb',
+          year: '2023',
+          month: 'February',
+          content: 'Database dump and point-in-time recovery testing scripts certified for 99.9% data durability.'
+        },
+        {
+          id: 'dev-2024-apr',
+          year: '2024',
+          month: 'April',
+          content: 'Log analysis engine built in Python to parse server access spikes and prevent brute-force attacks.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

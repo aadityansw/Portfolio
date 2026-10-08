@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sai Shree Balajee Homes — Project Timeline | Aaditya Narayan</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="index.html">Case Study</a>
+      <a href="timeline.html" style="font-weight:600; text-decoration:underline;">Timeline</a>
+      <a href="https://ssbhomes.netlify.app/" target="_blank" rel="noopener noreferrer" class="resume-pill">Live Site &nearr;</a>
+    </nav>
+  </div>
+
+  <!-- Lead-in Section -->
+  <section class="timeline-lead-in slide delay01">
+    <span class="timeline-lead-badge">Web Application &amp; Admin Suite</span>
+    <h1 class="timeline-lead-heading">Sai Shree Balajee Homes: Storyline</h1>
+    <p class="timeline-lead-desc">
+      A 12-month client lifecycle: from architectural visual assets to an interactive property inventory platform and custom content administration suite.
+    </p>
+    <div class="timeline-lead-scroll-hint">
+      <span>Scroll to explore timeline milestones</span>
+      <span>&darr;</span>
+    </div>
+  </section>
+
+  <!-- Pinned Horizontal Timeline Container -->
+  <div id="projectTimeline" class="slide delay02"></div>
+
+  <!-- Footer Navigation -->
+  <section class="timeline-lead-in" style="padding: 80px 20px 120px 20px;">
+    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">Explore Further</h3>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="index.html" class="resume-pill">Read Full Case Study &rarr;</a>
+      <a href="../websites/timeline.html" class="resume-pill">Next Timeline: Websites &rarr;</a>
+      <a href="../../index.html" class="resume-pill" style="border-color:#888;">&larr; Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="slide delay03">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP CDN & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'SSB Homes Roadmap',
+      periodLabel: '2023 — 2024',
+      imageUrl: 'img/ssbhomes-cover.webp',
+      imageAlt: 'Sai Shree Balajee Homes Platform',
+      activeColor: '#D97706',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'ssb-2023-aug',
+          year: '2023',
+          month: 'August',
+          content: 'Client engagement & requirements gathering for luxury residential development catalog.'
+        },
+        {
+          id: 'ssb-2023-nov',
+          year: '2023',
+          month: 'November',
+          content: 'Architectural gallery layout and floorplan interactive modal system designed in Figma.'
+        },
+        {
+          id: 'ssb-2024-mar',
+          year: '2024',
+          month: 'March',
+          content: 'Frontend application built featuring seamless filtering by property type, size, and location.'
+        },
+        {
+          id: 'ssb-2024-jul',
+          year: '2024',
+          month: 'July',
+          content: 'Custom admin dashboard delivered, enabling property agents to update prices and unit availability.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'ssb-2023-oct',
+          year: '2023',
+          month: 'October',
+          content: 'Asset compression pipeline engineered delivering crisp high-res 4K renders with zero lag.'
+        },
+        {
+          id: 'ssb-2024-jan',
+          year: '2024',
+          month: 'January',
+          content: 'Automated enquiry pipeline integrated sending leads straight to sales reps via WhatsApp and email.'
+        },
+        {
+          id: 'ssb-2024-may',
+          year: '2024',
+          month: 'May',
+          content: 'Netlify production launch certified with a 98+ Google Lighthouse performance rating.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+/* ===================================================================
+   3D WORKS WHEEL COMPONENT - STYLES
+   Aesthetic: Minimal monochrome, Geist typography, 3D spatial drum
+   =================================================================== */
+
+.works-wheel-section {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 720px;
+  min-height: 520px;
+  margin: 0 auto 80px auto;
+  border-radius: 24px;
+  background: radial-gradient(circle at 50% 50%, #FAFAFA 0%, #F4F4F5 100%);
+  border: 1px solid #E4E4E7;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.07);
+  box-sizing: border-box;
+}
+
+.works-wheel-stage {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: pan-x;
+  outline: none;
+  perspective-origin: 50% 50%;
+}
+
+.works-wheel-stage:active {
+  cursor: grabbing;
+}
+
+.works-wheel-stage:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: -4px;
+}
+
+.works-wheel-track {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* --- Wheel Cards --- */
+.works-wheel-card {
+  position: absolute;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition: opacity 0.2s ease;
+}
+
+.works-wheel-card-face {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 22px 45px -18px rgba(0, 0, 0, 0.22);
+  transform-origin: center center;
+  will-change: transform;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.works-wheel-card:hover .works-wheel-card-face {
+  box-shadow: 0 26px 50px -15px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.works-wheel-card img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  display: block;
+  pointer-events: none;
+}
+
+/* Floating Action Tag */
+.works-wheel-card-action {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #111111;
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.25s cubic-bezier(0.2, 0.6, 0.2, 1);
+  pointer-events: none;
+}
+
+.works-wheel-card:hover .works-wheel-card-action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Category Pill Tag */
+.works-wheel-card-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+/* --- Center Rest Label --- */
+.works-wheel-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  line-height: 1;
+  text-align: center;
+}
+
+/* --- Active Title at Front --- */
+.works-wheel-title-container {
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  transform: translateY(-50%);
+  max-width: 320px;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 50;
+}
+
+.works-wheel-title {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+.works-wheel-desc {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: #666666;
+  line-height: 1.45;
+}
+
+/* --- Right Index Listing --- */
+.works-wheel-index {
+  position: absolute;
+  top: 6%;
+  right: 3%;
+  list-style: none;
+  text-align: right;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+  z-index: 60;
+  max-height: 85%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.works-wheel-index::-webkit-scrollbar {
+  display: none;
+}
+
+.works-wheel-index-btn {
+  background: none;
+  border: none;
+  font-family: 'Geist', -apple-system, sans-serif;
+  color: #888888;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  outline: none;
+}
+
+.works-wheel-index-btn:hover {
+  color: #111111;
+}
+
+.works-wheel-index-btn.active {
+  color: #111111;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Bottom Wheel Controls Toolbar --- */
+.works-wheel-toolbar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  z-index: 70;
+}
+
+.works-wheel-nav-btn {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #444444;
+  transition: all 0.2s ease;
+}
+
+.works-wheel-nav-btn:hover {
+  background: #111111;
+  color: #FFFFFF;
+}
+
+.works-wheel-hint {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #777777;
+  padding: 0 4px;
+}
+
+/* --- Responsive Adjustments --- */
+@media screen and (max-width: 900px) {
+  .works-wheel-section {
+    height: 600px;
+    margin: 0 20px 60px 20px;
+  }
+  .works-wheel-title-container {
+    left: 4%;
+    max-width: 240px;
+  }
+  .works-wheel-index {
+    right: 2%;
+    top: 4%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .works-wheel-section {
+    height: 520px;
+    border-radius: 18px;
+  }
+  .works-wheel-title-container {
+    top: 14%;
+    left: 16px;
+    transform: none;
+    max-width: 70%;
+  }
+  .works-wheel-index {
+    display: none; /* Hide index on small mobile to give full stage to cards */
+  }
+  .works-wheel-toolbar {
+    bottom: 12px;
+  }
+}

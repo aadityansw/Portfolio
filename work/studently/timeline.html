@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studently — Project Timeline | Aaditya Narayan</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="index.html">Case Study</a>
+      <a href="timeline.html" style="font-weight:600; text-decoration:underline;">Timeline</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Lead-in Section -->
+  <section class="timeline-lead-in slide delay01">
+    <span class="timeline-lead-badge">EdTech &amp; Campus Portal Platform</span>
+    <h1 class="timeline-lead-heading">Studently: Centralized Academic Hub</h1>
+    <p class="timeline-lead-desc">
+      A 3-year transformation: from disparate college notice boards and chat groups to an integrated Flutter mobile portal serving over 2,000 active students.
+    </p>
+    <div class="timeline-lead-scroll-hint">
+      <span>Scroll to explore timeline milestones</span>
+      <span>&darr;</span>
+    </div>
+  </section>
+
+  <!-- Pinned Horizontal Timeline Container -->
+  <div id="projectTimeline" class="slide delay02"></div>
+
+  <!-- Footer Navigation -->
+  <section class="timeline-lead-in" style="padding: 80px 20px 120px 20px;">
+    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">Explore Further</h3>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="index.html" class="resume-pill">Read Full Case Study &rarr;</a>
+      <a href="../ssb-homes/timeline.html" class="resume-pill">Next Timeline: SSB Homes &rarr;</a>
+      <a href="../../index.html" class="resume-pill" style="border-color:#888;">&larr; Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="slide delay03">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP CDN & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'Studently Evolution',
+      periodLabel: '2022 — 2025',
+      imageUrl: 'img/studently-cover-page.webp',
+      imageAlt: 'Studently Application Interface',
+      activeColor: '#8B5CF6',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'st-2022-sep',
+          year: '2022',
+          month: 'September',
+          content: 'Campus research mapping information loss across fragmented WhatsApp circulars and physical boards.'
+        },
+        {
+          id: 'st-2023-may',
+          year: '2023',
+          month: 'May',
+          content: 'Complete design system and responsive mobile wireframes finalized for rapid glanceability between lectures.'
+        },
+        {
+          id: 'st-2024-feb',
+          year: '2024',
+          month: 'February',
+          content: 'V1 student launch featuring authenticated class rosters, real-time timetable changes, and exam schedules.'
+        },
+        {
+          id: 'st-2025-jan',
+          year: '2025',
+          month: 'January',
+          content: 'Institutional scaling to 2,000+ active students with sub-second cached queries and zero downtime.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'st-2023-jan',
+          year: '2023',
+          month: 'January',
+          content: 'Hierarchical database permissions engineered distinguishing faculty admins, student reps, and general peers.'
+        },
+        {
+          id: 'st-2023-oct',
+          year: '2023',
+          month: 'October',
+          content: 'Interactive assignment tracker module shipped with automated reminders 24 hours prior to deadline.'
+        },
+        {
+          id: 'st-2024-aug',
+          year: '2024',
+          month: 'August',
+          content: 'Local SQLite offline caching implemented to keep schedules accessible without campus Wi-Fi.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

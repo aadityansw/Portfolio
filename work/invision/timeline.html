@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InVision DSM — Design System Timeline | Aaditya Narayan</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="index.html">Case Study</a>
+      <a href="timeline.html" style="font-weight:600; text-decoration:underline;">Timeline</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Lead-in Section -->
+  <section class="timeline-lead-in slide delay01">
+    <span class="timeline-lead-badge">Design Systems &amp; Tokens Architecture</span>
+    <h1 class="timeline-lead-heading">InVision DSM: Design System Timeline</h1>
+    <p class="timeline-lead-desc">
+      A 2-year enterprise study establishing atomic design tokens, multi-brand theming, component governance, and seamless developer handoff.
+    </p>
+    <div class="timeline-lead-scroll-hint">
+      <span>Scroll to explore timeline milestones</span>
+      <span>&darr;</span>
+    </div>
+  </section>
+
+  <!-- Pinned Horizontal Timeline Container -->
+  <div id="projectTimeline" class="slide delay02"></div>
+
+  <!-- Footer Navigation -->
+  <section class="timeline-lead-in" style="padding: 80px 20px 120px 20px;">
+    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">Explore Further</h3>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="index.html" class="resume-pill">Read Full Case Study &rarr;</a>
+      <a href="../apna-agenda/timeline.html" class="resume-pill">Back to Start: Apna Agenda &rarr;</a>
+      <a href="../../index.html" class="resume-pill" style="border-color:#888;">&larr; Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="slide delay03">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP CDN & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'DSM System Storyline',
+      periodLabel: '2022 — 2024',
+      imageUrl: 'img/DSM.webp',
+      imageAlt: 'InVision Design System Manager Study',
+      activeColor: '#F43F5E',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'dsm-2022-apr',
+          year: '2022',
+          month: 'April',
+          content: 'Enterprise audit evaluating visual debt and inconsistencies across 12 distinct product squad repositories.'
+        },
+        {
+          id: 'dsm-2022-nov',
+          year: '2022',
+          month: 'November',
+          content: 'Atomic token hierarchy established governing typography scales, color palettes, elevation shadows, and radiuses.'
+        },
+        {
+          id: 'dsm-2023-jun',
+          year: '2023',
+          month: 'June',
+          content: 'Multi-brand UI library constructed with synchronized Light, Dark, and High-Contrast token themes.'
+        },
+        {
+          id: 'dsm-2024-mar',
+          year: '2024',
+          month: 'March',
+          content: 'Complete design system guidelines published with copyable React/Flutter component code snippets.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'dsm-2022-aug',
+          year: '2022',
+          month: 'August',
+          content: 'Governance model structured defining token contribution workflows and automated deprecation warnings.'
+        },
+        {
+          id: 'dsm-2023-feb',
+          year: '2023',
+          month: 'February',
+          content: 'Interactive prototype sandbox built to evaluate component accessibility and state transitions.'
+        },
+        {
+          id: 'dsm-2023-oct',
+          year: '2023',
+          month: 'October',
+          content: 'Automated WCAG 2.1 AA accessibility validation test suite integrated into design token builds.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>

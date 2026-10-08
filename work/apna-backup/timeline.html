@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apna Backup Mobile — Project Timeline | Aaditya Narayan</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/timeline.css" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <div class="header slide">
+    <a href="../../index.html" class="logo">Aaditya Narayan</a>
+    <nav class="header-nav">
+      <a href="index.html">Case Study</a>
+      <a href="timeline.html" style="font-weight:600; text-decoration:underline;">Timeline</a>
+      <a href="../../index.html#projects">All Projects</a>
+    </nav>
+  </div>
+
+  <!-- Lead-in Section -->
+  <section class="timeline-lead-in slide delay01">
+    <span class="timeline-lead-badge">DevOps &amp; Telemetry Architecture</span>
+    <h1 class="timeline-lead-heading">Apna Backup Mobile: Live Server Telemetry</h1>
+    <p class="timeline-lead-desc">
+      From manual SSH log audits to high-throughput WebSocket streaming and live mobile telemetry monitoring for mission-critical Linux nodes.
+    </p>
+    <div class="timeline-lead-scroll-hint">
+      <span>Scroll to explore timeline milestones</span>
+      <span>&darr;</span>
+    </div>
+  </section>
+
+  <!-- Pinned Horizontal Timeline Container -->
+  <div id="projectTimeline" class="slide delay02"></div>
+
+  <!-- Footer Navigation -->
+  <section class="timeline-lead-in" style="padding: 80px 20px 120px 20px;">
+    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">Explore Further</h3>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="index.html" class="resume-pill">Read Full Case Study &rarr;</a>
+      <a href="../studently/timeline.html" class="resume-pill">Next Timeline: Studently &rarr;</a>
+      <a href="../../index.html" class="resume-pill" style="border-color:#888;">&larr; Back to Portfolio</a>
+    </div>
+  </section>
+
+  <footer class="slide delay03">
+    &copy; Aaditya Narayan 2025
+  </footer>
+
+  <!-- GSAP CDN & Timeline Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../../js/timeline.js"></script>
+
+  <script>
+    new ProjectTimeline({
+      container: '#projectTimeline',
+      title: 'Telemetry Evolution',
+      periodLabel: '2023 — 2025',
+      imageUrl: '../../img/apna-backup.webp',
+      imageAlt: 'Apna Backup Mobile Server Monitoring',
+      activeColor: '#2563EB',
+      backgroundColor: '#FFFFFF',
+      textColor: '#111111',
+      mutedTextColor: '#555555',
+      topItems: [
+        {
+          id: 'ab-2023-apr',
+          year: '2023',
+          month: 'April',
+          content: 'DevOps audit reveals critical delay during off-hour server incidents due to lack of accessible mobile metrics.'
+        },
+        {
+          id: 'ab-2023-dec',
+          year: '2023',
+          month: 'December',
+          content: 'Engineered lightweight daemon broadcasting CPU, memory, and disk health metrics over secure WebSockets.'
+        },
+        {
+          id: 'ab-2024-aug',
+          year: '2024',
+          month: 'August',
+          content: 'Real-time telemetry UI built in Flutter with dynamic SVG gauges, interactive sparklines, and latency indicators.'
+        },
+        {
+          id: 'ab-2025-mar',
+          year: '2025',
+          month: 'March',
+          content: 'Automated failover triggering and encrypted emergency SSH reboot commands executed straight from mobile.'
+        }
+      ],
+      bottomItems: [
+        {
+          id: 'ab-2023-sep',
+          year: '2023',
+          month: 'September',
+          content: 'Established end-to-end mTLS authentication ensuring only authorized operator devices can stream cluster telemetry.'
+        },
+        {
+          id: 'ab-2024-apr',
+          year: '2024',
+          month: 'April',
+          content: 'Zero-latency push notification pipeline integrated to alert on disk exhaustion and process memory leaks.'
+        },
+        {
+          id: 'ab-2024-dec',
+          year: '2024',
+          month: 'December',
+          content: 'Multi-node fleet dashboard rolled out, monitoring 10+ distributed Linux instances simultaneously.'
+        }
+      ]
+    });
+  </script>
+</body>
+</html>
