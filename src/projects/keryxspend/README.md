@@ -1,51 +1,79 @@
-# KeryxSpend — Intelligent Personal Budget Tracker & Expense Manager
+# KeryxSpend — Application Case Study & Technical Documentation
 
-**Category:** Flutter & Fintech  
-**Timeline:** 2024 — 2025  
-**Platforms:** Android, iOS  
-**Role:** Lead Mobile Engineer & Fintech UI Designer  
-**Stack:** Flutter, Dart, Hive DB, SQLite, FL Chart, Figma  
+> **Live Demo:** [https://keryxspend.vercel.app](https://keryxspend.vercel.app)  
+> **Platforms:** Android, iOS, and Web  
+> **Stack:** Flutter 3.27+, Dart, Firebase Auth, Cloud Firestore, `fl_chart`, `home_widget`, `url_launcher`  
+> **Naming Note:** Also referenced as *SpendTrack* in Figma and `expense_tracker` in Dart package naming.
 
 ---
 
 ## 📌 Executive Summary
-**KeryxSpend** is an intelligent personal budget tracker and expense manager engineered in Flutter. It empowers individuals to gain complete mastery over their personal finances through multi-category budget envelopes, sub-second expense logging, predictive overspend alerts, and visual analytics—all safeguarded by an offline-first encrypted vault.
+**KeryxSpend** is a personal finance application built with Flutter and Firebase (Authentication + Cloud Firestore) for tracking expenses, debts and credits, subscriptions, and budgets in one place, with Google sign-in and real-time cloud synchronization.
+
+It answers four everyday money questions:
+1. **Where is my money going?** — Expenses feed, Stats tab with 6-month trends, category donut charts, and payment method totals.
+2. **Who owes me, and who do I owe?** — Debts tab with per-person ledgers, partial repayments, waterfall settlement, and UPI "Pay Now" deep-linking.
+3. **What am I subscribed to, and when does it renew?** — Subscriptions tab with renewal countdowns, reminders, and "Did it get deducted?" auto-logging prompts.
+4. **Am I overspending?** — Budgets with live month-to-date tracking, 80% amber threshold, and 100%+ overspend alerts.
 
 ---
 
-## 🎯 The Problem
-Most personal finance applications suffer from three critical flaws:
-1. **Ad Bloat & Invasive Bank Sync:** Forcing users to link active banking credentials or endure financial product advertisements.
-2. **High Friction Entry:** Complicated multi-step transaction forms that cause people to abandon expense logging after a few days.
-3. **Reactive Rather Than Proactive:** Showing where money was spent only *after* the budget has already been exceeded.
+## 🚀 Feature Guide
+
+### 1. Authentication
+* **Google Sign-In:** Uses Firebase Auth (`signInWithPopup` on web; `google_sign_in` token exchange on Android and iOS).
+* **AuthGate:** Listens to `authStateChanges()` stream to automatically switch between Login and the main app shell.
+
+### 2. Expenses & Bill Splitting
+* **Live Expenses Feed:** Real-time stream with running totals, newest first.
+* **Quick-Add Modal:** Bottom sheet with amount quick-add chips (`+₹100`, `+₹500`, `+₹1,000`), categories, and payment methods.
+* **Split a Bill:** Enter total paid, select participants (autocompleted from Debts), and split equally or custom. The full amount is logged as an expense; each participant's share automatically becomes a "they owe you" entry in the Debts ledger.
+
+### 3. Debts with Waterfall Settlement
+* **Per-Person Ledger:** Two directions: *They owe me* (lent) and *I owe them* (borrowed). Grouped by normalized name (Rahul, rahul, "Rahul " resolve to one identity).
+* **Waterfall Settlement Algorithm:** A payment automatically settles the person's oldest pending entries first, then spills over into the next.
+* **Repayment-to-Expense Pipeline:** When you pay back borrowed money, atomic Firestore `WriteBatch` automatically logs that repayment as an expense in the **Debt Cleared** category. Incoming repayments do not generate expenses.
+* **UPI "Pay Now" Flow:** Deep links directly into Indian UPI apps (Google Pay, PhonePe, Paytm) with pre-filled amounts and remembered UPI IDs.
+
+### 4. Subscriptions & Smart Prompts
+* **Tracking & Normalization:** Monthly, quarterly, half-yearly, annual, or custom cycles normalized to an estimated monthly total.
+* **Auto-Rolling Renewal Dates:** Single anchor date steps forward whole cycles automatically.
+* **"Did it get deducted?" Prompt:** Fires the day after renewal passes. Tapping "Yes" auto-logs an expense on the renewal date with pre-selected category and payment method.
+
+### 5. Budgets & Stats
+* **Live Category Envelopes:** Overall or per-category monthly limits with color-coded states (normal under 80%, amber at 80%, red at 100%+).
+* **Visual Analytics:** Interactive FL Chart line graphs showing 6-month spending trends, plus donut charts ranked with progress bars.
+
+### 6. Home & Lock-Screen Widgets
+* Native Android Kotlin `AppWidgetProvider` and iOS `WidgetKit` extensions (via `home_widget`) displaying today's total spend and opening directly into the Quick Add sheet with one tap.
 
 ---
 
-## 💡 The Solution
-KeryxSpend re-engineers personal financial tracking around simplicity, speed, and privacy:
-1. **Rapid 3-Tap Transaction Logging:** Log any purchase in under 3 seconds with auto-suggested merchant names and smart category tags.
-2. **Visual Category Envelopes:** Real-time progress rings indicating exact remaining balances across Dining, Groceries, Shopping, and Utilities.
-3. **Predictive Burn-Rate Alerts:** Machine learning heuristics calculate your daily burn rate and alert you days in advance if you're on track to exhaust category budgets.
-4. **100% Offline Encrypted Privacy:** Financial transactions never leave your device without explicit encrypted export.
+## ⚙️ Architecture & Key Patterns
+
+```text
+Screens / Widgets  ──►  Repositories  ──►  Cloud Firestore
+      ▲                                         │
+      └───────── Firestore Streams (StreamBuilder) ◄───┘
+```
+
+1. **Zero State-Management Boilerplate:** Clean layered architecture with native `StreamBuilder` widgets updating whenever cloud documents change.
+2. **Single-Collection Override Pattern:** Default categories and payment methods live in client code; Firestore documents only exist when custom items or overrides are created.
+3. **Atomic WriteBatches:** Multi-document mutations (like debt settlements generating linked expense records) commit atomically to prevent ledger desync.
+4. **Tree-Shake-Safe Icon Lookup:** Custom category icons resolve via a static code-point lookup table (`resolveCategoryIcon`), preventing Flutter release builds from stripping icons.
 
 ---
 
-## 🚀 Key Features
-- [x] Multi-Category Budget Allocation & Remaining Balances
-- [x] Rapid Expense Quick-Add with Timestamp History
-- [x] Recurring Subscription & Bill Payment Tracker
-- [x] Interactive 30-Day Spending Trend Sparklines
-- [x] Multi-Currency Support with Offline Exchange Rates
-- [x] Savings Goal Target Rings & Milestones
+## 🛠️ Tech Stack & Dependencies
+* **Framework:** Flutter 3.27+, Dart
+* **Backend:** Cloud Firestore, Firebase Authentication
+* **Data Visualization:** `fl_chart`
+* **Notifications:** `flutter_local_notifications`, `timezone`
+* **Widgets & Deep Links:** `home_widget`, `url_launcher` (UPI protocols)
+* **Design System:** iOS-inspired blue and white palette (`#007AFF` brand, `#1C1C1E` ink, San Francisco typography)
 
 ---
 
-## ⚙️ Architecture & Technical Highlights
-- **Fixed-Point Arithmetic:** Completely avoids floating-point roundoff errors by processing all ledger calculations in integer cents.
-- **Offline-First Hive Storage:** Instantaneous read/write speeds (<5ms query times) with on-disk AES-256 encryption.
-- **Hardware-Accelerated Charts:** Custom-tuned FL Chart graphs rendering fluidly at 60 FPS without UI jank.
-
----
-
-## 📸 Media & Assets
-- Cover Art: `/img/keryxspend.jpg`
+## 🌐 Live Access
+Test the live production web build:  
+👉 **[keryxspend.vercel.app](https://keryxspend.vercel.app)**

@@ -12,7 +12,8 @@ export interface WorksWheelItem {
   image: string;
   /** Where the card links to. Omit for a wheel that only browses. */
   href?: string;
-  /** Optional subtitle or technology badge */
+  /** Optional external live app URL */
+  liveUrl?: string;
   category?: string;
   tag?: string;
   description?: string;
@@ -128,10 +129,13 @@ export function WorksWheel({
 
   const metrics = React.useMemo(() => {
     const { w, h } = stage;
-    const cardW = Math.min(h * CARD_H * CARD_RATIO, w * CARD_MAX_W);
+    const isMobile = w < 640;
+    const cardW = isMobile
+      ? Math.min(w * 0.74, 320)
+      : Math.min(h * CARD_H * CARD_RATIO, w * CARD_MAX_W);
     const cardH = cardW / CARD_RATIO;
-    const drumR = cardH * DRUM;
-    const ringR = cardH * RING_R;
+    const drumR = cardH * (isMobile ? 2.0 : DRUM);
+    const ringR = cardH * (isMobile ? 1.05 : RING_R);
     const ringScale = count
       ? clamp((((2 * Math.PI * ringR) / count) * 0.82) / (cardW || 1), 0.16, 1)
       : 1;
@@ -428,29 +432,43 @@ export function WorksWheel({
       {/* Front active card title */}
       <div
         ref={titleRef}
-        className="pointer-events-none absolute top-1/2 left-[8%] sm:left-[7%] -translate-y-1/2 tracking-tight opacity-0 max-w-[340px] z-20"
+        className="pointer-events-none absolute top-6 sm:top-1/2 left-4 sm:left-[7%] sm:-translate-y-1/2 tracking-tight opacity-0 max-w-[280px] sm:max-w-[340px] z-20"
       >
-        <h3 className="text-2xl sm:text-4xl font-semibold text-zinc-900 leading-tight">
+        <h3 className="text-xl sm:text-4xl font-semibold text-zinc-900 leading-tight">
           {items[active]?.title}
         </h3>
         {items[active]?.description ? (
-          <p className="text-xs sm:text-base text-zinc-500 font-light mt-1.5 leading-relaxed">
+          <p className="text-xs sm:text-base text-zinc-500 font-light mt-1.5 leading-relaxed line-clamp-2 sm:line-clamp-none">
             {items[active]?.description}
           </p>
         ) : null}
-        {items[active]?.href && (
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleNavigate(items[active]?.href);
-            }}
-            className="pointer-events-auto mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 hover:bg-black text-white text-xs sm:text-sm font-medium transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
-          >
-            <span>View Case Study</span>
-            <ArrowUpRight className="size-3.5 stroke-[2.2]" />
-          </button>
-        )}
+        <div className="flex flex-wrap items-center gap-2 mt-3 sm:mt-4">
+          {items[active]?.href && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNavigate(items[active]?.href);
+              }}
+              className="pointer-events-auto inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-zinc-900 hover:bg-black text-white text-xs sm:text-sm font-medium transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
+            >
+              <span>View Case Study</span>
+              <ArrowUpRight className="size-3.5 stroke-[2.2]" />
+            </button>
+          )}
+          {items[active]?.liveUrl && (
+            <a
+              href={items[active]?.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="pointer-events-auto inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
+            >
+              <span>Test Live App</span>
+              <ArrowUpRight className="size-3.5 stroke-[2.2]" />
+            </a>
+          )}
+        </div>
       </div>
 
       {/* Right index buttons */}

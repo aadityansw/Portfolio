@@ -72,7 +72,7 @@ export function ProjectDetailPage() {
 
         {/* Highlighted Project Metrics */}
         {project.metrics && project.metrics.length > 0 && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 my-8 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-8 pt-4">
             {project.metrics.map((metric, idx) => (
               <div
                 key={idx}
@@ -96,15 +96,15 @@ export function ProjectDetailPage() {
         </div>
 
         {project.liveUrl && (
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-zinc-900 text-white text-sm font-medium hover:bg-black transition-colors shadow-sm"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-medium transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group"
             >
-              <span>Visit Live Website</span>
-              <ArrowUpRight className="size-4" />
+              <span>Test Live App ({project.liveUrl.replace(/^https?:\/\//, "")})</span>
+              <ArrowUpRight className="size-4 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
         )}

@@ -26,6 +26,7 @@ export function HomePage({ onOpenSkills }: HomePageProps) {
       title: p.title,
       image: p.image,
       href: `/work/${p.id}`,
+      liveUrl: p.liveUrl,
       category: p.categoryLabel,
       description: p.description,
     }));
@@ -63,13 +64,13 @@ export function HomePage({ onOpenSkills }: HomePageProps) {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="max-w-[1200px] mx-auto px-6 pt-16 pb-16 sm:pt-24 sm:pb-24">
+      <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-12 pb-12 sm:pt-24 sm:pb-24">
         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-medium text-zinc-800 mb-6">
           <span className="size-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
           <span>Available for Flutter &amp; Web Development</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-zinc-900 leading-[1.08] max-w-4xl">
+        <h1 className="text-3xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-zinc-900 leading-[1.08] max-w-4xl">
           Web Design. App Development. Flutter. Python. UX. &amp; More
         </h1>
 
